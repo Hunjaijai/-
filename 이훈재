@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계좌번호 복사</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>1002180070808</h1>
+    <input type="text" value="123-456-7890" id="accountNumber" readonly>
+    <br><br>
+    <button class="button" onclick="copyToClipboard()">계좌번호 복사</button>
+
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("accountNumber");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // 모바일 기기에서 잘 작동하도록
+            document.execCommand("copy");
+            alert("계좌번호가 복사되었습니다: " + copyText.value);
+        }
+    </script>
+
+</body>
+</html>
